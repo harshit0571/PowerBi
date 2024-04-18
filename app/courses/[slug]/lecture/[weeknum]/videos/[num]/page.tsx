@@ -37,7 +37,7 @@ export default function Page({ params }: { params: any }) {
     <div className="w-full pt-24 grid grid-cols-1 items-start justify-start px-11 relative">
       {/* Blur effect overlay */}
 
-      {(params.weeknum == 1 || params.weeknum == 2 || params.weeknum == 5) &&
+      {(params.weeknum == 1 || params.weeknum == 2 || params.weeknum == 3 || params.weeknum == 4 || params.weeknum == 5) &&
       params.num == 1 ? (
         <></>
       ) : (
