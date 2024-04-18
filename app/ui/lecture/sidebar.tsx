@@ -22,15 +22,18 @@ export default function SideBar({
   return (
     <div
       className={clsx(
-        "w-80 fixed bottom-0 top-0 border-r-2 border-r-[#078181] overflow-x-visible overflow-y-scroll no-scrollbar min-h-fit h-screen shadow-lg duration-300",
+        "w-80 fixed bottom-0 top-0 border-r-2 border-r-[#078181] overflow-x-visible overflow-y-scroll no-scrollbar min-h-fit h-screen shadow-lg duration-300 group/top",
         { "left-0": isOpen, "left-11 -translate-x-80": !isOpen }
       )}
     >
-      <div className="sticky z-50 top-0 right-0 left-0 w-full bg-[#078181] px-6 py-6 font-bold text-white text-2xl">
-        <span>{course.title}</span>
+      
+      <div className="sticky z-50 top-0 right-0 left-0 w-full bg-[#078181] px-6 pb-4 pt-11 duration-300">
+      <Link href="/" className="absolute top-[-100%] group-hover/top:top-0 left-0 z-50 font-bold text-md block w-full text-center bg-slate-200 hover:bg-slate-300 duration-500 hover:text-slate-500">
+        <span className="pl-1 group-hover:pl-0 group-hover:pr-1 duration-300">&lt;</span> Back to Home</Link>
+        <span className="font-bold text-white text-2xl">{course.title}</span>
         <button
           className={clsx(
-            "absolute right-1 -translate-y-1/2 w-8 text-5xl text-white h-8 flex justify-center items-center duration-300 top-1/2 font-light",
+            "absolute right-1 -translate-y-1.2 w-8 text-5xl text-white h-8 flex justify-center items-center duration-300 top-1/2 font-light",
             { "rotate-180": isOpen }
           )}
           onClick={() => setOpen(!isOpen)}

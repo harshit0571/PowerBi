@@ -37,7 +37,7 @@ export default function PaymentSec({ user }) {
                 "Power BI Templates to Lucky Winners"
               ]}
               arrMinus={[]}
-              arrPlus={["100% Job Preperation and assistance"]}
+              arrPlus={["100% Job preparation and assistance"]}
               courseId="65dadfed4f55cc9363c750e4"
               disabled={false}
             />
@@ -52,8 +52,8 @@ export default function PaymentSec({ user }) {
               arrMinus={[]}
               arrPlus={[
                 "100% PL-300 assurance",
-                "100% moneyback gaurantee",
-                "100% Job preperation and assistance"
+                "100% moneyback guarantee",
+                "100% Job preparation and assistance"
               ]}
               courseId="65dadfed4f55cc9363c750e4"
               disabled={true}
@@ -239,7 +239,7 @@ function Box({
       if (Code === "CHITKARA700") {
         setCodeFail(false);
         setCodeSuccess(true);
-        setamount(500);
+        setamount(699);
       } else if (Code == "testcfc#123") {
         setCodeFail(false);
         setCodeSuccess(true);
@@ -295,14 +295,14 @@ function Box({
           {/* <span className="text-3xl line-through text-gray-500">
             &#8377; 4999
           </span>{" "} */}
-          {amount == 500 ? (
+          {amount == 699 ? (
             <div>
               {" "}
               <span className="text-gray-400 line-through">
                 {" "}
                 &#8377; 4999
               </span>{" "}
-              <span className=""> &#8377; 500</span>{" "}
+              <span className=""> &#8377; 699</span>{" "}
             </div>
           ) : (
             <p>&#8377; {disabled ? "5499" : "4999"}</p>
@@ -314,13 +314,13 @@ function Box({
         {tickTemp}
         {minusTemp}
       </div>
-      <div class="px-4 py-4 flex flex-wrap box-border">
+      <div className="px-4 py-4 flex flex-wrap box-border">
         {disabled ? (
           <div className="flex justify-center items-stretch gap-4">
             <input
               type="text"
-              placeholder="we are coming soon"
-              class="h-[50px] box-border border px-2 border-gray-300 rounded "
+              placeholder="We are launching soon"
+              className="h-[50px] box-border border px-2 border-gray-300 rounded "
               value={Code}
               disabled
               onChange={(e) => {
@@ -328,7 +328,7 @@ function Box({
               }}
             />
             <button
-              class="p-2 bg-[#3091a4] px-6 text-white rounded hover:bg-[#3091a4]"
+              className="p-2 bg-[#3091a4] px-6 text-white rounded hover:bg-[#3091a4]"
               onClick={() => {
                 checkDiscount();
               }}
@@ -341,15 +341,15 @@ function Box({
           <div className="flex justify-center items-stretch gap-4">
             <input
               type="text"
-              placeholder="we are coming soon"
-              class="h-[50px] box-border border px-2 border-gray-300 rounded-md"
+              placeholder="Enter Coupon Code"
+              className="h-[50px] box-border border px-2 border-gray-300 rounded-md"
               value={Code}
               onChange={(e) => {
                 setCode(e.target.value);
               }}
             />
             <button
-              class="p-2 bg-[#3091a4] px-6 text-white rounded-md hover:bg-[#3091a4]"
+              className="p-2 bg-[#3091a4] px-6 text-white rounded-md hover:bg-[#3091a4]"
               onClick={() => {
                 checkDiscount();
               }}
