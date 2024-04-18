@@ -99,8 +99,8 @@ function Permodule({
       </div>
       <div className="overflow-hidden relative">
         <div
-          className={clsx("w-full bg-slate-200 duration-300 py-2", {
-            "mt-[-100%]": !isOpen,
+          className={clsx("w-full bg-slate-200 duration-300 py-2 box-border", {
+            "mt-[-100%] hidden": !isOpen,
             "mt-0": isOpen,
           })}
         >
@@ -167,7 +167,7 @@ function AssignLink({
       className="w-full flex justify-start items-center group py-2 px-4"
     >
       <Image
-        className={clsx("mx-1 w-5 h-5 group-hover:scale-110 duration-75", {
+        className={clsx("w-6 h-6 group-hover:scale-110 duration-75", {
           "brightness-50": !path.includes(link),
         })}
         src="/Icons/assignment.svg"

@@ -34,11 +34,10 @@ export default function PaymentSec({ user }) {
                 "Bonuses upto ₹3000",
                 "Free Power BI Master Guides",
                 "Job Assitance to a BI Analyst",
-                "Power BI Templates to Lucky Winners",
-                "10 Days to a Power BI Expert",
+                "Power BI Templates to Lucky Winners"
               ]}
               arrMinus={[]}
-              arrPlus={[]}
+              arrPlus={["100% Job Preperation and assistance"]}
               courseId="65dadfed4f55cc9363c750e4"
               disabled={false}
             />
@@ -49,12 +48,13 @@ export default function PaymentSec({ user }) {
               arrTick={[
                 "Bonuses upto ₹3000",
                 "Free Power BI Master Guides",
-                "Job Assitance to a BI Analyst",
-                "Power BI Templates to Lucky Winners",
-                "10 Days to a Power BI Expert",
               ]}
               arrMinus={[]}
-              arrPlus={[]}
+              arrPlus={[
+                "100% PL-300 assurance",
+                "100% moneyback gaurantee",
+                "100% Job preperation and assistance"
+              ]}
               courseId="65dadfed4f55cc9363c750e4"
               disabled={true}
             />
@@ -127,8 +127,8 @@ function Box({
   ));
   const plusTemp = arrPlus.map((item, ind) => (
     <div key={ind} className="flex flex-row my-2">
-      <Image src="/Icons/plus-circle.svg" height="20" width="20" alt="Icon" />
-      <p className="text-slate-500 ml-2 font-bold">{item}</p>
+      <Image src="/Icons/tick-circle-red.svg" className="" height="20" width="20" alt="Icon" />
+      <p className="text-red-600 ml-2 font-bold">{item}</p>
     </div>
   ));
   //payment starts here
@@ -310,9 +310,9 @@ function Box({
         </h3>
       </div>
       <div className="px-4 py-8">
+        {plusTemp}
         {tickTemp}
         {minusTemp}
-        {plusTemp}
       </div>
       <div class="px-4 py-4 flex flex-wrap box-border">
         {disabled ? (
