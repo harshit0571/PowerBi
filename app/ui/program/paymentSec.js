@@ -236,7 +236,7 @@ function Box({
       setamount(4999);
       setCodeSuccess(false);
     } else {
-      if (Code === "cfc50") {
+      if (Code === "CHITKARA700") {
         setCodeFail(false);
         setCodeSuccess(true);
         setamount(500);
@@ -316,7 +316,7 @@ function Box({
       </div>
       <div class="px-4 py-4 flex flex-wrap box-border">
         {disabled ? (
-          <>
+          <div className="flex justify-center items-stretch gap-4">
             <input
               type="text"
               placeholder="we are coming soon"
@@ -334,29 +334,29 @@ function Box({
               }}
               disabled
             >
-              apply coupon
+              Apply coupon
             </button>
-          </>
+          </div>
         ) : (
-          <>
+          <div className="flex justify-center items-stretch gap-4">
             <input
               type="text"
               placeholder="we are coming soon"
-              class="h-[50px] box-border border px-2 border-gray-300 rounded "
+              class="h-[50px] box-border border px-2 border-gray-300 rounded-md"
               value={Code}
               onChange={(e) => {
                 setCode(e.target.value);
               }}
             />
             <button
-              class="p-2 bg-[#3091a4] px-6 text-white rounded hover:bg-[#3091a4]"
+              class="p-2 bg-[#3091a4] px-6 text-white rounded-md hover:bg-[#3091a4]"
               onClick={() => {
                 checkDiscount();
               }}
             >
-              apply coupon
+              Apply coupon
             </button>
-          </>
+          </div>
         )}
       </div>
 
@@ -390,15 +390,15 @@ function Box({
         </button> */}
 
         {disabled ? (
-          <button className="py-2 px-4 rounded-full border-2 border-black pr-6 group-hover:pr-4 duration-300">
-            We are coming soon..
+          <button className="py-2 px-4 rounded-full border-2 border-black duration-300">
+            We are coming soon...
           </button>
         ) : (
           <button
             onClick={() => {
               paymentHandler();
             }}
-            className="py-2 px-4 rounded-full border-2 border-black pr-6 group-hover:pr-4 duration-300"
+            className="py-2 px-4 rounded-full border-2 border-black duration-300"
           >
             Pay
           </button>
