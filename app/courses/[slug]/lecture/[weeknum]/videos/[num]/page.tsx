@@ -17,6 +17,7 @@ export default function Page({ params }: { params: any }) {
     username: "",
     selectedCourses: [{courseId: ""}],
   });
+  const [userLoading, setUserLoading] = useState(true);
   useEffect(() => {
     let str = localStorage.getItem("user");
     if (str != null && str.length > 0) {
@@ -24,11 +25,14 @@ export default function Page({ params }: { params: any }) {
         const getData = async () => {
           const response = await axios.get(apiLink + "/user/" + str);
           setUser(response.data.user);
+          setUserLoading(false);
         };
         getData();
       } catch {
         console.log("No user with this record exists");
       }
+    }else{
+      setUserLoading(false);
     }
   }, []);
   let module: any = useState({});
@@ -53,6 +57,11 @@ export default function Page({ params }: { params: any }) {
         </div>
       );
     }
+  }
+  if(userLoading) {
+    return(<div className="w-full h-screen flex bg-white justify-center items-center">
+      <BeatLoader loading={true} color="#008080" size={30} />
+    </div>)
   }
   return (
     <div className="w-full h-full relative">
