@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     "app/ui/program/paymentSec.js",
     "app/ui/program/paymentSec.js"
-  ],
+, "app/ui/register/passWordValid.js"  ],
   "exclude": ["node_modules"]
 }

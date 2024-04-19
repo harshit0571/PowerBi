@@ -5,6 +5,7 @@ import { useState, useRef } from "react";
 import { apiLink } from "@/app/api";
 import axios from "axios";
 import BeatLoader from "react-spinners/BeatLoader";
+import InputEle from "../utils/input.util.js";
 
 export default function FormLogin() {
   const [formData, setFormData] = useState({
@@ -13,7 +14,6 @@ export default function FormLogin() {
   });
   const [resMessage, setResMessage] = useState("");
   const [isLoading, setLoading] = useState(false);
-  const [showPass, setShowPass] = useState(false);
   const userRef: any = useRef(null);
   const passRef: any = useRef(null);
   const handleChange = (e: any) => {
@@ -30,7 +30,8 @@ export default function FormLogin() {
       const res = await axios.post(apiLink + "/auth/login", formData);
       localStorage.setItem("user", formData.username);
       window.location.href = "/";
-    } catch (error) {
+    } 
+    catch (error) {
       setResMessage("Invalid Username or Password!!");
       userRef.current.toggleAttribute("disabled", false);
       passRef.current.toggleAttribute("disabled", false);
@@ -44,70 +45,16 @@ export default function FormLogin() {
       onSubmit={handleSubmit}
     >
       <div className="text-md text-red-700 font-bold">{resMessage}</div>
-      <div className="bg-white h-11 p-2 my-2 rounded-xl grid grid-cols-[40px_1fr] grid-rows-1 items-center relative">
-        <Image
-          className="w-8 h-8"
-          src="/Icons/user-login.svg"
-          width="100"
-          height="100"
-          alt="Icon"
-        ></Image>
-        <div className="pt-2">
-          <input
-            className="outline-none auth-input w-full md:w-72 placeholder:text-white disabled:bg-white disabled:text-slate-500"
-            ref={userRef}
-            value={formData.username}
-            type="text"
-            name="username"
-            onChange={handleChange}
-            id="username"
-            placeholder="."
-            disabled={false}
-            required
-          ></input>
-          <label
-            className="absolute left-12 top-0 duration-300"
-            htmlFor="username"
-          >
-            Username
-          </label>
-        </div>
-      </div>
-      <div className="bg-white h-11 p-2 my-2 rounded-xl grid grid-cols-[40px_1fr] grid-rows-1 items-center relative overflow-hidden">
-        <Image
-          className="w-7 h-7"
-          src="/Icons/lock-login.svg"
-          width="100"
-          height="100"
-          alt="Icon"
-        ></Image>
-        <div className="pt-2">
-          <input
-            className="outline-none auth-input w-full md:w-72 placeholder:text-white disabled:bg-white disabled:text-slate-500"
-            ref={passRef}
-            value={formData.password}
-            name="password"
-            type={showPass ? "text" : "password"}
-            onChange={handleChange}
-            id="pass"
-            placeholder="."
-            disabled={false}
-            required
-          ></input>
-          <label className="absolute left-12 top-0 duration-300" htmlFor="pass">
-            Password
-          </label>
-          <p
-            className="absolute text-sm h-full top-0 right-0 bg-white p-2 flex items-center text-black font-bold cursor-default"
-            onClick={() => setShowPass(!showPass)}
-          >
-            {showPass ? "Hide" : "Show"}
-          </p>
-        </div>
-      </div>
-      <div className="w-full">
+
+      <InputEle refer={userRef} value={formData.username} type="text"
+      handleChange={handleChange} name="username"/>
+
+      <InputEle refer={passRef} value={formData.password} type="password"
+      handleChange={handleChange} name="password"/>
+      
+      <div className="w-full my-2">
         {isLoading ? (
-          <div className="w-full p-3 flex h-11 justify-center items-center rounded-xl my-2 bg-[#289492]">
+          <div className="w-3/5 mx-auto p-3 flex h-11 justify-center items-center rounded-xl my-2 bg-[--pc]">
             <BeatLoader
               color="white"
               loading={true}
@@ -118,7 +65,7 @@ export default function FormLogin() {
           </div>
         ) : (
           <button
-            className="w-full p-2 text-xl text-white flex h-11 justify-center items-center my-2 rounded-xl bg-[#1e4847] hover:brightness-150 font-bold duration-200"
+            className="w-3/5 mx-auto p-2 text-2xl text-white flex h-11 justify-center items-center my-2 rounded-xl bg-[--pc] hover:scale-105  font-bold duration-200"
             type="submit"
           >
             Continue

@@ -4,23 +4,23 @@ import Link from "next/link";
 export default function Page() {
   return (
     <div className="flex flex-col justify-center items-center">
-      <h1 className="text-3xl text-white font-extrabold ">Login</h1>
+      <h1 className="text-3xl text-black font-extrabold ">Login</h1>
       <FormLogin />
-      <div className="text-white font-bold">
+      <div className="text-black font-bold">
         Forgot password?
         <Link
           href="/reset"
-          className="font-bold text-blue-300 hover:text-blue-900"
+          className="font-bold text-[--pc] hover:text-green-950"
         >
           {" "}
           Reset
         </Link>
       </div>
-      <div className="text-white font-bold">
+      <div className="text-black font-bold">
         Don't have an account?
         <Link
           href="/auth/register"
-          className="font-bold text-blue-300 hover:text-blue-900"
+          className="font-bold text-[--pc] hover:text-green-950"
         >
           {" "}
           Sign up
