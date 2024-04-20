@@ -32,15 +32,24 @@ export default function Register() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        setResMessage("");
         if (!isValid(formData.password)) {
             setResMessage("Password not valid");
+            setValidShow(true);
             passRef.current.focus();
             return;
         }
+        else{
+            setValidShow(false);
+        }
+
         if (!isSame(formData.password, confirmPass)) {
             pass2Ref.current.focus();
             setConfShow(true);
             return;
+        }
+        else{
+            setConfShow(false);
         }
         setLoading(true);
         setResMessage("");
@@ -82,14 +91,14 @@ export default function Register() {
         }
     }
 
-    return (<div className="w-full overflow-hidden py-4 relative h-96 flex flex-col items-center justify-center">
+    return (<div className="w-full overflow-hidden py-4 relative min-h-96 flex flex-col items-center justify-center">
         <div className="text-md text-red-700 font-bold">{resMessage}</div>
         <div className={clsx("w-full overflow-hidden grid", {
             "grid-cols-[1fr_0]": !finalStep,
             "grid-cols-[0_1fr]": finalStep
         })}>
             <Form1 formData={formData} setFinal={setFinal} nameRef={nameRef} mailRef={mailRef} handleChange={handleChange} isHidden={finalStep} />
-            <Form2 formData={formData} isHidden={!finalStep} setFinal={setFinal} handleChange={handleChange} handleSubmit={handleSubmit} userRef={userRef} passRef={passRef} pass2Ref={pass2Ref} isLoading={isLoading} confirmPass={confirmPass} setConfirmPass={setConfirmPass} />
+            <Form2 formData={formData} isHidden={!finalStep} setFinal={setFinal} handleChange={handleChange} handleSubmit={handleSubmit} userRef={userRef} passRef={passRef} pass2Ref={pass2Ref} isLoading={isLoading} confirmPass={confirmPass} setConfirmPass={setConfirmPass} validShow={validShow} confShow={confShow}/>
         </div>
     </div>);
 }

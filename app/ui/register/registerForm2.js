@@ -8,7 +8,7 @@ import clsx from 'clsx';
 
 export default function Form2(
     {
-        formData, setFinal, userRef, passRef, pass2Ref, handleChange, handleSubmit, isHidden, isLoading, confirmPass, setConfirmPass
+        formData, setFinal, userRef, passRef, pass2Ref, handleChange, handleSubmit, isHidden, isLoading, confirmPass, setConfirmPass, validShow, confShow
     }
 ){
     const handleConfirm = (e) => {
@@ -20,7 +20,9 @@ export default function Form2(
     })} onSubmit={handleSubmit} >
         <InputEle refer={userRef} value={formData.username} handleChange={handleChange} type="text" name="username"/>
         <InputEle refer={passRef} value={formData.password} handleChange={handleChange} type="password" name="password"/>
-        <InputEle refer={pass2Ref} value={confirmPass} handleChange={handleConfirm} type="password" name="password2"/>
+        {validShow && <ValidShow ele={formData.password} />}
+        <InputEle refer={pass2Ref} value={confirmPass} handleChange={handleConfirm} type="password" name="Confirm Password"/>
+        {confShow && <ConfirmShow pass1={formData.password} pass2={confirmPass} />}
         { isLoading? 
         <div className="w-full p-3 flex h-11 justify-center items-center rounded-xl my-2 bg-[#289492]"><BeatLoader color="white" loading= {true} size={10} aria-label="Loading Spinner" data-testid="loader"/></div>
         :<div className="flex items-center gap-2">

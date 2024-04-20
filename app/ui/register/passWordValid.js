@@ -1,5 +1,5 @@
-function ValidPass({ele}) {
-    return(<div className="absolute left-1/2 bottom-full flex flex-col justify-center items-center -translate-x-1/2">
+function ValidShow({ele}) {
+    return(<div className="flex flex-col justify-center items-center">
         <div className="bg-white bg-opacity-80 rounded-xl p-4">
             <ValidLine right={ele.length > 7} line="Password should be 8 characters long" />
             <ValidLine right={/\d/.test(ele)} line="Password should have digits" />
@@ -21,7 +21,7 @@ function ValidLine({right, line}) {
 }
 
 function ConfirmShow({pass1, pass2}){
-    return(<div className="absolute left-1/2 bottom-full flex flex-col justify-center items-center -translate-x-1/2">
+    return(<div className="flex flex-col justify-center items-center">
     <div className="bg-white bg-opacity-80 rounded-xl p-4">
         {pass1 === pass2 && pass1 !== ""?
         <p className="text-green-600 truncate font-bold"><span className="px-2">&#x2713;</span>Both the passwords should be same</p>:
@@ -48,4 +48,4 @@ function isSame(pass1, pass2) {
     }
 }
 
-export {ValidPass, ConfirmShow, isValid, isSame};
+export {ValidShow, ConfirmShow, isValid, isSame};
