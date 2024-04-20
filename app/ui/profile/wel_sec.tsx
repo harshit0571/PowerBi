@@ -13,6 +13,7 @@ export default function WelSec() {
     username: "",
     selectedCourses: [],
   });
+  const [isValid, setValid] = useState(true);
   useEffect(() => {
     let str = localStorage.getItem("user");
     if (str != null && str.length > 0) {
@@ -22,11 +23,23 @@ export default function WelSec() {
           setUser(response.data.user);
         };
         getData();
+        console.log(user);
       } catch {
-        console.log("No user with this record exists");
+        setValid(false);
       }
     }
+    else{
+      setValid(false);
+    }
   }, []);
+  if(!isValid) {
+    return (
+      <div className="top-0 left-0 right-0 bottom-0 h-screen w-screen mx-auto flex flex-col justify-center items-center">
+        <h1 className="text-4xl font-bold my-4">Invalid Authentication Token</h1>
+        <p className="text-2xl text-[--pc]">Please         <Link href="/auth/login" className="underline">Sign In</Link>  again to continue</p>
+      </div>
+    );
+  }
   if (user.username.length === 0) {
     return (
       <div className="top-0 left-0 right-0 bottom-0 text-4xl h-screen w-screen mx-auto flex justify-center items-center">
@@ -35,81 +48,39 @@ export default function WelSec() {
     );
   }
   return (
-    <div className="relative w-full mx-auto mt-11 overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 w-full h-full">
-        <Image
-          src="/Images/profile_background.svg"
-          className="w-full h-full top-0 left-0 right-0 hidden md:block"
-          width="1000"
-          height="1000"
-          alt="Backround-graphics"
-        />
-      </div>
-      <div className="absolute bottom-0 right-0 w-4 h-4 rounded-full bg-[#14BAB7] shadow-[0_0_100px_100px_#14BAB7]"></div>
-      <div className="relative pt-52 px-4 sm:px-16 md:px-32 max-w-6xl mx-auto">
-        <div className="w-full grid grid-cols-1 md:grid-cols-[6fr_5fr] gap-4">
-          <div className="relative h-full">
-            <div className="absolute top-4 left-4 rounded-full bg-[#00807E] w-11 h-11 shadow-[0_0_100px_100px_#00807E]"></div>
-            <div className="relative h-full px-6 py-11 rounded-lg bg-[#F1F1F1] flex flex-col items-center">
-              <Image
-                src="/Images/profile_photo.png"
-                className="rounded-full w-32 h-32"
-                width="100"
-                height="100"
-                alt="Profile pic"
-              />
-              <h1 className="my-4 text-3xl font-bold text-center">
-                {user.name}
-              </h1>
-              <div className="text-xl">
-                <p>
-                  <span className="font-bold">Email:</span> {user.email}
-                </p>
-                <p>
-                  <span className="font-bold">Username:</span> {user.username}
-                </p>
+    <div className="h-screen w-full grid grid-cols-[35%,1fr]">
+      <div className="bg-[linear-gradient(180deg,#1a3c3f,#00ccc0)] relative">
+        <div className="h-screen w-full overflow-hidden flex justify-center items-center">
+        <div className="translate-x-1/2 bg-[radial-gradient(yellow,transparent_70%)] w-[100%] h-1/2 text-4xl"></div>
+        </div>
+        <div className="bg-[linear-gradient(270deg,#1a3c3f,#00ccc0)] absolute top-1/2 -translate-y-1/3 left-full w-[200%] translate-x-[-200px] flex rounded-full">
+          <Image src="/Images/profile_pic_.png" className="h-full rounded-full" width="400" height="400" alt="Profile Pic" />
+          <div className="pl-11 flex flex-col justify-evenly text-white">
+            <h3 className="text-4xl">Profile Details</h3>
+            <div className="grid grid-cols-[40%,1fr] max-w-fit">
+              <div className="text-slate-200">
+                <p className="pr-2">username: </p>
+                <p className="pr-2">Phone Number: </p>
+                <p className="pr-2">Email: </p>
+                <p className="pr-2">Institution: </p>
+              </div>
+              <div>
+                <p className="">{user.username}</p>
+                <p className="">xxx</p>
+                <p className="">{user.email}</p>
+                <p className="">xxx</p>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 items-center md:pl-11 h-full gap-4">
-            <Link
-              className="flex h-full bg-[#00807E] rounded-lg py-4 flex-col items-center justify-center hover:scale-95 duration-300"
-              href="/profile"
-            >
-              <Image
-                src="/Images/profile_course1.svg"
-                className="w-16 h-16 my-4"
-                width="100"
-                height="100"
-                alt="Icon"
-              />
-              <h3 className="text-white font-bold text-xl">Enrolled Courses</h3>
-            </Link>
-            <Link
-              className="flex h-full bg-[#00807E] rounded-lg py-4 flex-col items-center justify-center hover:scale-95 duration-300"
-              href="/profile"
-            >
-              <Image
-                src="/Images/profile_course2.svg"
-                className="w-16 h-16 my-4"
-                width="100"
-                height="100"
-                alt="Icon"
-              />
-              <h3 className="text-white font-bold text-xl">Course Available</h3>
-            </Link>
-          </div>
-        </div>
-        <div className="w-full mt-24 pb-11">
-          <Image
-            src="/Images/profile_stats.svg"
-            className="block mx-auto"
-            width="500"
-            height="500"
-            alt="Stats"
-          />
         </div>
       </div>
+      <div className="bg-[linear-gradient(225deg,#399d96,white,#399d96)] p-28">
+        <div className="font-bold">
+          <p className="text-2xl">Hello!</p>
+          <h2 className="text-5xl">{user.name}</h2>
+        </div>
+      </div>
+
     </div>
   );
 }
