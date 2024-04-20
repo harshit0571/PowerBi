@@ -21,7 +21,6 @@ export default function SideBar({modules}: {
         setTop2("translate-y-["+(num*56)+"px]");
         setTogg(!togg);
     }, [path]);
-    console.log(top1);
     return(<div className="w-full relative">
         <div className="w-2 h-full absolute ml-5 bg-slate-300 rounded-3xl"></div>
         <div className={clsx("w-2 h-14 bg-[#078181] ml-5 absolute rounded-3xl duration-500 top-0",

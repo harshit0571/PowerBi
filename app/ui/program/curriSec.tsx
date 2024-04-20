@@ -28,10 +28,6 @@ export default function CurriculumSec({ user }: { user: any }) {
     getCourses();
   }, []);
 
-  useEffect(() => {
-    console.log(data.course.modules);
-  }, [data]);
-
   // const [user, setUser] = useState({
   //   name: "",
   //   email: "",

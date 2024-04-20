@@ -29,8 +29,6 @@ export default function Sec1() {
         subject: "",
         message: "",
       });
-
-      console.log(res);
       alert("thanks for reaching us!!");
       // Optionally, display a success message or redirect the user
     } catch (error) {

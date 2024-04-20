@@ -155,7 +155,6 @@ function Box({
       },
     });
     const order = await response.json();
-    console.log(order, "order");
 
     var options = {
       key: process.env.NEXT_PUBLIC_KEY_ID, // Enter the Key ID generated from the Dashboard
@@ -185,12 +184,10 @@ function Box({
             apiLink + "/enroll/" + "65dadfed4f55cc9363c750e4" + "/" + username
           );
           // const response = await axios.post(apiLink + "/enroll");
-          console.log(response);
           if (response.data.message == "success") {
             setPaymentStatus(true);
           }
         }
-        console.log(jsonRes, "dddd");
       },
       notes: {
         address: "Razorpay Corporate Office",

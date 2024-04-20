@@ -13,7 +13,6 @@ export default function Form1(
     const [isLoading, setLoading] = useState(false);
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
