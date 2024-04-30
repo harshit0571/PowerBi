@@ -91,59 +91,27 @@ export default function Page({ params }: { params: any }) {
       ) 
       : 
       ("65dadfed4f55cc9363c750e4" === user?.selectedCourses[0]?.courseId?
-      (<div className="w-full h-full bg-white bg-opacity-100 flex justify-center pt-11 items-center flex-col">
-      <div className="flex flex-col w-full items-center justify-center">
-        <div className="text-black w-full text-center flex justify-center items-center gap-4 flex-col">
-          <Image
-            src="/logo_blacktext.png"
-            width={300}
-            height={300}
-            className=" py-2 shrink-0"
-            alt="Placed logo"
-          />
-          <p className="text-3xl font-bold text-black">
-            Batch starting from 29th April, 2024
-          </p>
-          <p className="text-lg mb-2 font-bold text-black">
-          Access to the Content will be available with commencement of the Batch
-          </p>
-        </div>
-
-        <div className="flex gap-5 m-4">
-          <div className="rounded-md p-2 bg-[--pc] text-white font-bold cursor-pointer">
-            <Link href="/contact">Contact Us</Link>
-          </div>
-          <div className="rounded-lg p-2 bg-[--pc] text-white font-bold">
-            <Link href="/">About Us</Link>
-          </div>
-        </div>
-
-        <div className="flex flex-row align-center justify-center w-full mb-1">
-          <Link href="https://www.linkedin.com/company/coursesforcareers-dot-tech/">
-            <Image
-              src="/Icons/linkedin.svg"
-              width="50"
-              height="50"
-              className="w-8 h-8 mr-2"
-              alt="Social media Logo"
-            />
-          </Link>
-          <Link href="https://www.instagram.com/coursesforcareers.tech?igsh=a2VoYmlrdXdsMHRr">
-            <Image
-              src="/Icons/instagram.png"
-              width="50"
-              height="50"
-              className="w-8 h-8 mr-2"
-              alt="Social media Logo"
-            />
-          </Link>
-        </div>
+      (<div className="w-full p-11">
+      <h1 className="text-6xl font-bold">{videoData.title}</h1>
+      <div className="bg-slate-200 py-1 px-4 rounded-lg mt-11 flex items-center">
+        <Link href={link}>{course.title}</Link>
+        <span className="text-lg mx-2 font-bold text-[--pc]">&gt;</span>
+        <Link href={link}>{module.title}</Link>
+        <span className="text-lg mx-2 font-bold text-[--pc]">&gt;</span>
+        <Link href="">{videoData.title}</Link>
       </div>
-
-      <div>
-        <Image src="/Images/startingsoon.jpeg" width={500} height={500} alt="waiting" />
-      </div>
-    </div>)
+      <div className="w-full my-11 relative pt-[50%]">
+        <iframe
+          className="w-5/6 mx-auto h-full absolute top-0 right-0 left-0"
+          width="560"
+          height="315"
+          src={videoData.url}
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        ></iframe>
+        </div>
+        </div>)
       :
         (<div className="w-full h-full bg-white bg-opacity-100 flex justify-center pt-24 items-center flex-col">
           <div className="flex flex-col w-full items-center justify-center">
@@ -156,7 +124,7 @@ export default function Page({ params }: { params: any }) {
                 alt="Placed logo"
               />
               <p className="text-3xl mb-5  font-bold text-black">
-                We are Launching Soon
+                Register course to continue
               </p>
             </div>
 
