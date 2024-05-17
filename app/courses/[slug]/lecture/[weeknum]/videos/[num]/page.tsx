@@ -124,7 +124,7 @@ export default function Page({ params }: { params: any }) {
                 alt="Placed logo"
               />
               <p className="text-3xl mb-5  font-bold text-black">
-                Register course to continue
+                We are launcing soon..!
               </p>
             </div>
 
