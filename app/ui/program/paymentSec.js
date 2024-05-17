@@ -232,21 +232,23 @@ function Box({
       setCodeFail(true);
       setamount(4999);
       setCodeSuccess(false);
-    } else {
-      if (Code === "CHITKARA700") {
-        setCodeFail(false);
-        setCodeSuccess(true);
-        setamount(699);
-      } else if (Code == "testcfc#123") {
-        setCodeFail(false);
-        setCodeSuccess(true);
-        setamount(5);
-      } else {
-        setCodeFail(true);
-        setamount(4999);
-        setCodeSuccess(false);
-      }
-    }
+    } 
+    // else {
+      
+      // if (Code === "CHITKARA700") {
+      //   setCodeFail(false);
+      //   setCodeSuccess(true);
+      //   setamount(699);
+      // } else if (Code == "testcfc#123") {
+      //   setCodeFail(false);
+      //   setCodeSuccess(true);
+      //   setamount(5);
+      // } else {
+      //   setCodeFail(true);
+      //   setamount(4999);
+      //   setCodeSuccess(false);
+      // }
+    // }
   };
 
   return (
